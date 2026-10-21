@@ -1,0 +1,239 @@
+/* Configurações Globais */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  background-color: #0a0a0a; /* Fundo preto minimalista */
+  color: #f0f0f0;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background com Objetos 3D Voando */
+.bg-3d-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.shape-3d {
+  position: absolute;
+  opacity: 0.35;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.8));
+  animation: float3D 18s infinite ease-in-out alternate;
+}
+
+/* Formas Tridimensionais */
+.cube {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #a0c4ff, #ffb7b2);
+  border-radius: 16px;
+  transform: rotateX(45deg) rotateY(45deg) rotateZ(20deg);
+  top: 15%;
+  left: 10%;
+  animation-duration: 14s;
+}
+
+.sphere {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffb7b2, #70a6ff 70%, #0a0a0a);
+  top: 60%;
+  right: 12%;
+  animation-duration: 22s;
+}
+
+.pyramid {
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 80px solid #a0c4ff;
+  top: 75%;
+  left: 20%;
+  transform: rotateX(30deg) rotateZ(-25deg);
+  animation-duration: 16s;
+}
+
+.torus {
+  width: 80px;
+  height: 80px;
+  border: 20px solid #ff9eaa;
+  border-radius: 50%;
+  top: 25%;
+  right: 25%;
+  transform: rotateX(65deg) rotateY(20deg);
+  animation-duration: 20s;
+}
+
+@keyframes float3D {
+  0% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) rotateX(180deg) rotateY(90deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(30px) rotateX(360deg) rotateY(180deg) scale(0.95);
+  }
+}
+
+/* Layout Principal */
+main, header, footer {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cabeçalho */
+header {
+  text-align: center;
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid #ffb7b2;
+  padding: 35px 20px;
+  border-radius: 16px;
+  margin-bottom: 35px;
+  box-shadow: 0 8px 32px rgba(160, 196, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+header h1 {
+  font-size: 38px;
+  color: #a0c4ff;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+header p {
+  font-size: 22px;
+  color: #ffb7b2;
+}
+
+/* Cartões de Dicas */
+.card-dica {
+  background: rgba(18, 18, 18, 0.9);
+  border: 2px solid #a0c4ff;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card-dica:hover {
+  transform: translateY(-4px);
+  border-color: #ffb7b2;
+}
+
+.card-dica h2 {
+  font-size: 28px;
+  color: #a0c4ff;
+  margin-bottom: 15px;
+}
+
+.card-dica p {
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+/* Links / Botões nos Cards */
+.btn-saiba-mais {
+  display: inline-block;
+  background-color: transparent;
+  color: #ffb7b2;
+  border: 2px solid #ffb7b2;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.btn-saiba-mais:hover {
+  background-color: #ffb7b2;
+  color: #0a0a0a;
+}
+
+/* Botão de Destaque */
+.container-acao {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.btn-destaque {
+  background: linear-gradient(135deg, #a0c4ff, #ffb7b2);
+  color: #0a0a0a;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 18px 36px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 15px rgba(160, 196, 255, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-destaque:hover, 
+.btn-destaque:focus {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(255, 183, 178, 0.5);
+  outline: none;
+}
+
+/* Ilustrações e Figuras em SVG */
+.figura-ilustrativa {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 25px auto;
+  border-radius: 12px;
+  background-color: #121212;
+  border: 1px solid #333;
+  padding: 15px;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #a0c4ff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-voltar:hover {
+  color: #ffb7b2;
+  text-decoration: underline;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 18px;
+  color: #888888;
+  border-top: 1px solid #222;
+  margin-top: 40px;
+}
